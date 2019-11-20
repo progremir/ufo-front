@@ -1,3 +1,7 @@
+# UFO | Unfair Flight Optimizer
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e2984f3f-efeb-4bd0-92bf-e720c8865f7a/deploy-status)](https://app.netlify.com/sites/unfairflightoptimizer/deploys)
+<img align="right" src="https://user-images.githubusercontent.com/17231674/69140116-0de6a380-0aec-11ea-97df-02f078f0b44a.png">
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
