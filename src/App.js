@@ -4,6 +4,8 @@ import {Form, Button, Image, Container, InputGroup, Row, Col, Spinner, Alert} fr
 import axios from 'axios';
 import qs from 'qs';
 
+const API_URL = process.env.API_URL || 'http://localhost:5000/api/optimize';
+
 function App() {
   const [departure, setDeparture] = useState('');
   const [destinations, setDestinations] = useState(['']);
@@ -36,7 +38,7 @@ function App() {
 
     setLoad(true);
 
-    const response = await axios.get('http://localhost:5000/api/optimize', {
+    const response = await axios.get(API_URL, {
       params: {
         from: departure,
         to: destinations
@@ -119,7 +121,7 @@ function App() {
         {
           result && <Alert className="text-center" variant="success" onClose={() => setResult(false)} dismissible>
             <Alert.Heading>
-              You should go to {result.destination}. It will cost you only {result.dpk} $/km
+              You should go to {result.destination}. It will cost you only {result.dpk.toFixed(2)} $/km
             </Alert.Heading>
           </Alert>
         }
