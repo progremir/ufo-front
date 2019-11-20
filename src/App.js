@@ -20,7 +20,7 @@ function App() {
   const removeDestination = (e) => {
     const updatedDestinations = [...destinations];
     updatedDestinations.splice(e.target.dataset.idx, 1);
-    setDestinations(updatedDestinations);
+    setDestinations([...updatedDestinations]);
   };
 
   const handleDepartureChange = (e) => {
@@ -37,6 +37,8 @@ function App() {
     e.preventDefault();
 
     setLoad(true);
+    setError(false);
+    setResult(false);
 
     const response = await axios.get(API_URL, {
       params: {
@@ -80,7 +82,7 @@ function App() {
                 destinations.map((val, idx) => {
                   return (
                       <InputGroup key={idx} className="mb-3">
-                        <Form.Control required placeholder="City name" data-idx={idx} onChange={handleDestinationChange}/>
+                        <Form.Control required placeholder="City name" value={val} data-idx={idx} onChange={handleDestinationChange}/>
                         <InputGroup.Append>
                           <Button variant="outline-danger"
                                   data-idx={idx}
