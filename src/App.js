@@ -4,7 +4,9 @@ import {Form, Button, Image, Container, InputGroup, Row, Col, Spinner, Alert} fr
 import axios from 'axios';
 import qs from 'qs';
 
-const API_URL = process.env.API_URL || 'http://localhost:5000/api/optimize';
+const PROD_URL = 'https://ufo-server.herokuapp.com/api/optimize';
+const LOCAL_URL = 'http://localhost:5000/api/optimize';
+const API_URL = process.env.NODE_ENV ? PROD_URL : LOCAL_URL;
 
 function App() {
   const [departure, setDeparture] = useState('');
