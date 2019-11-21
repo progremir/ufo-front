@@ -6,7 +6,7 @@ import qs from 'qs';
 
 const PROD_URL = 'https://ufo-server.herokuapp.com/api/optimize';
 const LOCAL_URL = 'http://localhost:5000/api/optimize';
-const API_URL = process.env.NODE_ENV ? PROD_URL : LOCAL_URL;
+const API_URL = process.env.NODE_ENV === 'development' ? LOCAL_URL : PROD_URL;
 
 function App() {
   const [departure, setDeparture] = useState('');
